@@ -1,12 +1,24 @@
+<!-- Pays.vue -->
 <template>
   <div>
-    <h1>Liste des pays</h1>
-    <ul>
-      <li v-for="index in 10" :key="index">
-        <router-link :to="`/fiche-pays/${index}`">Pays {{ index }}</router-link>
-      </li>
-    </ul>
+    <h1>Liste des Pays</h1>
+    <CardPays v-for="pays in data" :key="pays.name.common" :pays="pays" />
   </div>
 </template>
 
-<script setup></script>
+<script setup>
+import { onMounted, ref } from 'vue'
+import axios from 'axios'
+import CardPays from './CardPays.vue'
+
+let data = ref('')
+
+onMounted(async () => {
+  const response = await axios.get('https://restcountries.com/v3.1/all')
+  data.value = response.data
+})
+</script>
+
+<style scoped>
+/* Styles spécifiques à la page Pays */
+</style>
