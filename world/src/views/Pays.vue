@@ -20,5 +20,4 @@ onMounted(async () => {
 </script>
 
 <style scoped>
-/* Styles spécifiques à la page Pays */
 </style>
