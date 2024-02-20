@@ -5,5 +5,4 @@
 <script setup></script>
 
 <style scoped>
-/* Add your custom styles here */
 </style>
